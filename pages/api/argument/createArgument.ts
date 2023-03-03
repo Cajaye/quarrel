@@ -9,7 +9,6 @@ export default async function handler(
 ) {
   if (req.method == "POST") {
     const { data: title } = req.body;
-    console.log(title);
 
     try {
       const session = await getServerSession(req, res, authOptions);
@@ -38,7 +37,7 @@ export default async function handler(
 
       const argument = prisma.argument.create({
         data: {
-          title: title,
+          title: title as string,
           userId: prismaUser?.id as string,
         },
       });
