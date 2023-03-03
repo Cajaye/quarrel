@@ -5,7 +5,7 @@ import axios, { AxiosError } from "axios"
 import { FormEvent, useState } from "react"
 
 export default function CreateArgument() {
-    //const queryClient = useQueryClient()
+    const queryClient = useQueryClient()
     let [title, setTitle] = useState("")
     let [isDisabled, setIsDisabled] = useState(false)
     let toastId: string;
@@ -22,7 +22,8 @@ export default function CreateArgument() {
                 }
             },
             onSuccess: (data) => {
-                toast.success("Argument Created",{id:toastId})
+                toast.success("Argument Created", { id: toastId })
+                queryClient.invalidateQueries({ queryKey: ['arguments'] })
                 setIsDisabled(false)
             }
         }
