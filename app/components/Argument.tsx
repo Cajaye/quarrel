@@ -33,7 +33,7 @@ export default function Arguments({ name, avatar, userId, title, createdAt,id }:
                     </Link>
             </div>
             <div className="flex items-center gap-4">
-            <Link href={`profile/${id}`}>
+            <Link href={`profile/${userId}`}>
             <Image
                 className="rounded-full"
                 src={avatar as string}
@@ -42,7 +42,7 @@ export default function Arguments({ name, avatar, userId, title, createdAt,id }:
                 height={32}
                     />
                 </Link>
-                 <Link href={`profile/${id}`}>
+                 <Link href={`profile/${userId}`}>
                     <h3 className="text-gray-700">{name}</h3>
                     </Link>
             </div>
