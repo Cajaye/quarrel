@@ -4,9 +4,11 @@ import Link from "next/link"
 export default function Nav() {
     return (
         <nav className="flex items-center justify-between my-4">
-            <h1>
-                Not sure
-            </h1>
+            <Link href="/">
+                <h1 className="text-lg font-medium">
+                Quarrel
+                </h1>
+            </Link>
             <ul className="flex items-center gap-6">
                 <li>
                     <Link href={""}>Profile</Link>
