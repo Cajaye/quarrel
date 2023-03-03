@@ -4,11 +4,8 @@ import { toast } from "react-hot-toast"
 import axios, { AxiosError } from "axios"
 import { FormEvent, useState } from "react"
 
-type Props = {
-    title:string
-}
-
 export default function CreateArgument() {
+    //const queryClient = useQueryClient()
     let [title, setTitle] = useState("")
     let [isDisabled, setIsDisabled] = useState(false)
     let toastId: string;

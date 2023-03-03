@@ -35,7 +35,7 @@ export default async function handler(
         res.status(400).json({ message: "Too many characters" });
       }
 
-      const argument = prisma.argument.create({
+      const argument = await prisma.argument.create({
         data: {
           title: title as string,
           userId: prismaUser?.id as string,
