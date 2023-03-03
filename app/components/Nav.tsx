@@ -1,5 +1,6 @@
 import Link from "next/link"
 import SignIn from "./SignIn"
+import SignOut from "./SignOut"
 import { getServerSession } from "next-auth/next"
 import { authOptions } from "../../pages/api/auth/[...nextauth]"
 import User from "./User"
@@ -23,7 +24,8 @@ export default async function Nav() {
                     )}
                 </li>
                 <li>
-                    {!session && <SignIn/>}
+                    {!session && <SignIn />}
+                    {session && <SignOut />}
                 </li>
             </ul>
         </nav>
