@@ -1,7 +1,12 @@
-'use client'
 import Link from "next/link"
+import SignIn from "./SignIn"
+import { getServerSession } from "next-auth/next"
+import { authOptions } from "../../pages/api/auth/[...nextauth]"
+import User from "./User"
 
-export default function Nav() {
+export default async function Nav() {
+    const session = await getServerSession(authOptions)
+
     return (
         <nav className="flex items-center justify-between my-4">
             <Link href="/">
@@ -11,10 +16,14 @@ export default function Nav() {
             </Link>
             <ul className="flex items-center gap-6">
                 <li>
-                    <Link href={""}>Profile</Link>
+                    {session && (
+                        <Link href={""}>
+                            <User avatar={ session.user?.image as string} name={session.user?.name as string} />
+                        </Link>
+                    )}
                 </li>
                 <li>
-                    <button className="px-6 py-2 bg-teal-700 text-white text-sm font-bold rounded-md">Sign in</button>
+                    {!session && <SignIn/>}
                 </li>
             </ul>
         </nav>

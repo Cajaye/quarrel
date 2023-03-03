@@ -14,11 +14,7 @@ const roboto = Roboto({
     variable:'--font-roboto',
 })
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({children}) {
   return (
     <html lang="en">
       <body className={`mx-4 md:mx-48 lg:mx-96 bg-gray-200 ${roboto.variable}`}>
