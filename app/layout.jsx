@@ -1,6 +1,6 @@
 import './globals.css'
 import { Roboto } from 'next/font/google'
-import Nav from './components/Nav'
+import Nav from './auth/Nav'
 import QueryWrapper from './auth/QueryWrapper'
 
 export const metadata = {
