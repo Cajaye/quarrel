@@ -36,7 +36,15 @@ export default async function handler(
 
       if (vote) {
         if (vote.type === data.type) {
-          res.status(400).json({ message: `Already ${data.type}d` });
+          //delete vote
+          await prisma.vote.deleteMany({
+            where: {
+              userId: prismaUser?.id as string,
+              argumentId: data?.argumentId as string,
+              type: data.type,
+            },
+          });
+          res.status(204).json({ message: `Vote removed` });
         } else {
           const oldVote = await prisma.vote.deleteMany({
             where: {

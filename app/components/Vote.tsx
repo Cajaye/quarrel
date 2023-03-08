@@ -31,7 +31,7 @@ export default function Vote({argumentId,upvote,downvote}:VoteProps) {
         }
       },
       onSuccess(data) {
-        toast.success("Voted Successfully", { id: toastVoteId });
+        toast.success("Vote created or removed", { id: toastVoteId });
         queryClient.invalidateQueries({ queryKey: ["arguments"] });
       },
     }
