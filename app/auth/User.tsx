@@ -1,5 +1,6 @@
 'use client'
 import Image from "next/image"
+import Link from "next/link"
 
 type Props = {
     avatar: string,
@@ -15,8 +16,10 @@ export default function User({avatar, name}:Props) {
                 alt="avatar"
                 width={32}
                 height={32}
-                    />
-                    <h3 className="text-gray-700">{ name }</h3>
-                    </div>
+            />
+            <Link href={"/profile"}>
+                <h3 className="text-gray-700">{name}</h3>
+            </Link>
+        </div>
     )
 }

@@ -4,7 +4,6 @@ import { useQuery } from "@tanstack/react-query"
 import axios, { AxiosError } from "axios";
 import Arguments from "./components/Argument";
 import { ArgumentsData } from "./types/arguments";
-import { useMemo } from "react";
 
 
 
@@ -13,9 +12,8 @@ async function getArguments():Promise<ArgumentsData[]> {
   return res.data
 } 
 
-
 export default function Home() {
-  const { data, isLoading, error } = useQuery({ queryKey: ['arguments'], queryFn: getArguments })
+  const { data, isLoading, error } = useQuery<ArgumentsData[]>({ queryKey: ['arguments'], queryFn: getArguments })
   
   if (isLoading) {
     return "Loading..."
@@ -25,16 +23,6 @@ export default function Home() {
     return (
       <h3>{ error.response?.data.message }</h3>
     )
-  }
-
-  function voteTypeTotal(arr: ArgumentsData["Vote"]) {
-    const upvotes = arr.filter((vote) => vote.type === "upvote")
-    const downvotes = arr.filter((vote) => vote.type === "downvote")   
-    
-    return {
-      upvotesLength: upvotes.length,
-      downvotesLength: downvotes.length,
-    }
   }
 
   
@@ -49,8 +37,7 @@ export default function Home() {
         key={argument.id}
         title={argument.title}
         createdAt={argument.createdAt}
-        upvote={voteTypeTotal(argument.Vote).upvotesLength}
-        downvote={voteTypeTotal(argument.Vote).downvotesLength}
+        votes={argument.Vote}
       />)}
     </main>
   )
