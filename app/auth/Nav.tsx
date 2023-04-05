@@ -16,7 +16,7 @@ export default async function Nav() {
       <ul className="flex items-center gap-6">
         <li>
           {session && (
-            <Link href={""}>
+            <Link href={"/"}>
               <User
                 avatar={session.user?.image as string}
                 name={session.user?.name as string}

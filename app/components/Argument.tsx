@@ -52,6 +52,7 @@ export default function Arguments({
       <div className="flex items-center gap-4">
         <Link href={`/profile`}>
           <Image
+            priority
             className="rounded-full"
             src={avatar as string}
             alt="avatar"

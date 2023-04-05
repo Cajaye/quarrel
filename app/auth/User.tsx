@@ -12,6 +12,7 @@ export default function User({ avatar, name }: Props) {
     <div className="flex items-center gap-4">
       <Image
         className="rounded-full"
+        priority
         src={avatar}
         alt="avatar"
         width={32}
