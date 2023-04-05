@@ -17,7 +17,7 @@ const roboto = Roboto({
 export default function RootLayout({children}) {
   return (
     <html lang="en">
-      <body className={`mx-4 md:mx-48 lg:mx-96 bg-gray-200 ${roboto.variable}`}>
+      <body className={`mx-4 md:mx-48 lg:mx-96 bg-gray-200`}>
         <QueryWrapper>
           <Nav/>
           {children}
