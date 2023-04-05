@@ -11,6 +11,11 @@ export default function User({ avatar, name }: Props) {
   return (
     <div className="flex items-center gap-4">
       <Image
+        placeholder="blur"
+        blurDataURL={'/img/logo.png'}
+        sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 50vw,
+              33vw"
         className="rounded-full"
         priority
         src={avatar}
